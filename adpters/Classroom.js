@@ -1,31 +1,38 @@
-const axios = require('axios')
-const { google } = require('googleapis')
-const credentials = require('.././credentials.json')
+const axios = require('axios');
+const { google } = require('googleapis');
+const credentials = require('.././credentials.json');
+const { createOAuth2Client } = require('./Auth');
+
 class Classroom {
-    constructor() {
-        this.oAuth2Client = new google.auth.OAuth2(
-            credentials.web.client_id,
-            credentials.web.client_secret,
-            "https://developers.google.com/oauthplayground"
-        )
-    }
-    getCourses = async (token) => {
+    async getCourses(token) {
         try {
-            this.oAuth2Client.setCredentials({ refresh_token: token });
-            const classroom = google.classroom({ version: "v1", auth: this.oAuth2Client });
+            const oAuth2Client = createOAuth2Client(token);
+            const classroom = google.classroom({ version: 'v1', auth: oAuth2Client });
             const courses = await classroom.courses.list({
                 pageSize: 10,
-                teacherId: "me",
-                courseStates: ["ACTIVE"]
-            })
+                teacherId: 'me',
+                courseStates: ['ACTIVE']
+            });
             return courses.data.courses;
-
         } catch (error) {
-            console.log(error);
+            throw error;
+        }
+    }
+
+    async getCourseWork(token, courseId) {
+        try {
+            const oAuth2Client = createOAuth2Client(token);
+            const classroom = google.classroom({ version: 'v1', auth: oAuth2Client });
+            const courseWork = await classroom.courses.courseWork.list({
+                courseId: courseId
+            });
+            return courseWork.data.courseWork;
+        } catch (error) {
+            throw error;
         }
     }
 }
 
 module.exports = {
     Classroom
-}
+};

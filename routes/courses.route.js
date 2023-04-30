@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { getCourses } = require('.././controllers/clasroom.controller');
+const { getCourses, getCourseWork } = require('.././controllers/clasroom.controller');
 
 router.post('/', getCourses);
 
-// router.post('/course-works',);
-//
+router.post('/coursework', getCourseWork);
+
 // router.post('/course-work/students',);
 //
 // router.post('/student', );
