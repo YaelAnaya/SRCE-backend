@@ -6,6 +6,9 @@ const fs = require('fs');
 const {routerApi}  = require('./routes/router');
 const app = express();
 
+const Database = require('./dao/index')
+const db = new Database()
+
 app.use(cors());
 // settings
 process.env.port = '4001';
@@ -28,6 +31,11 @@ const server = https.createServer({
 
 server.listen(app.get('port'), () => {
     console.log(`Server listening on https://localhost:${app.get('port')}`);
+    db.metodosDB.desplegarBD().then((docentes)=>{
+        console.log(docentes)
+    }).catch((error)=>{
+        console.log(error)
+    })
 }).on('error', (err) => {
     console.log(err);
 });
