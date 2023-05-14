@@ -1,13 +1,13 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const docenteSchema = new mongoose.Schema({
-  name: String,
+  nombre: String,
   correo: String,
-  asignaturas: {
-    type: [String]
-  }
+  clavesAsignaturas: {
+    type: [String],
+  },
 });
 
-const docente = mongoose.model('docente', docenteSchema);
+const docente = mongoose.model("docente", docenteSchema);
 
 module.exports = docente;
