@@ -18,6 +18,8 @@ const getCourses = async (req, res) => {
   }
 };
 
+const getSelectedCourses = async (req, res) => {};
+
 const getCourseWork = async (req, res) => {
   const { token, courseId } = req.body;
 
@@ -38,4 +40,5 @@ const getCourseWork = async (req, res) => {
 module.exports = {
   getCourses,
   getCourseWork,
+  getSelectedCourses,
 };

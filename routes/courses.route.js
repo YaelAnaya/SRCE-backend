@@ -3,6 +3,7 @@ const router = express.Router();
 const {
   getCourses,
   getCourseWork,
+  getSelectedCourses,
 } = require(".././controllers/clasroom.controller");
 
 const {
