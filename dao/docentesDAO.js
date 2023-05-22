@@ -12,11 +12,16 @@ class docentesDAO {
     }
   }
 
-  async agregarAsignaturaDocente(correo, claveAsignatura) {
+  async agregarAsignaturaDocente(correo, claveAsignatura, id_Asignatura) {
     try {
       const resultado = await Docente.updateOne(
         { correo: correo },
-        { $addToSet: { clavesAsignaturas: claveAsignatura } }
+        {
+          $addToSet: {
+            clavesAsignaturas: claveAsignatura,
+            id_Asignaturas: id_Asignatura,
+          },
+        }
       ).exec();
       console.log(resultado);
     } catch (error) {

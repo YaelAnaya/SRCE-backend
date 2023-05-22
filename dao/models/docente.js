@@ -6,6 +6,9 @@ const docenteSchema = new mongoose.Schema({
   clavesAsignaturas: {
     type: [String],
   },
+  id_Asignaturas: {
+    type: [String],
+  },
 });
 
 const docente = mongoose.model("docente", docenteSchema);
