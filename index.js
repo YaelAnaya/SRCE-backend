@@ -11,8 +11,8 @@ const db = new Database()
 
 app.use(cors());
 // settings
-process.env.port = '4001';
-app.set('port', process.env.port);
+let port = process.env.PORT || 4001;
+app.set('port',process.env.PORT );
 app.set('json spaces', 2);
 
 // middlewares
