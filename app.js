@@ -22,6 +22,11 @@ app.use(express.json());
 // server routes
 routerApi(app);
 
+// add a test endpoint
+app.get('/test', (req, res) => {
+    res.send('Hello world');
+});
+
 // starting the server
 const server = https.createServer({
     key: fs.readFileSync('server.key'),
