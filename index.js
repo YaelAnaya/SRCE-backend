@@ -14,6 +14,7 @@ app.use(cors());
 // settings
 let port = process.env.PORT || 3000;
 app.set('port',port );
+app.set('host', '0.0.0.0');
 app.set('json spaces', 2);
 
 // middlewares
@@ -25,8 +26,8 @@ routerApi(app);
 
 const server = http.createServer(app);
 
-server.listen(app.get('port'), () => {
-    console.log(`Server listening on https://localhost:${app.get('port')}`);
+server.listen(app.get('port'), app.get('host'), () => {
+    console.log(`Server listening on https://${app.get('host')}:${app.get('port')}`);
     db.metodosDB.desplegarBD().then((docentes)=>{
         console.log(docentes)
     }).catch((error)=>{

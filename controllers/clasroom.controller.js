@@ -20,7 +20,7 @@ const getCourses = async (req, res) => {
 
 const getCourseWork = async (req, res) => {
   const { token, courseId } = req.body;
-
+  console.log(token, courseId);
   try {
     const courseWork = await classroom.getCourseWork(token, courseId);
     res.json({
