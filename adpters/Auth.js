@@ -1,10 +1,9 @@
 const { google } = require('googleapis');
-const credentials = require('.././credentials.json');
-
+require('dotenv').config();
 function createOAuth2Client(token) {
     const oAuth2Client = new google.auth.OAuth2(
-        credentials.web.client_id,
-        credentials.web.client_secret,
+        process.env.GOOGLE_CLIENT_ID,
+        process.env.GOOGLE_CLIENT_SECRET,
         'https://developers.google.com/oauthplayground'
     );
 

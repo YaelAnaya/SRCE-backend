@@ -1,6 +1,4 @@
-const axios = require('axios');
 const { google } = require('googleapis');
-const credentials = require('.././credentials.json');
 const { createOAuth2Client } = require('./Auth');
 
 class Classroom {
