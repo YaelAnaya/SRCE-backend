@@ -1,6 +1,4 @@
-const axios = require('axios');
 const { google } = require('googleapis');
-const credentials = require('.././credentials.json');
 const { createOAuth2Client } = require('./Auth');
 
 class Classroom {
@@ -10,8 +8,6 @@ class Classroom {
             const classroom = google.classroom({ version: 'v1', auth: oAuth2Client });
             const courses = await classroom.courses.list({
                 pageSize: 10,
-                teacherId: 'me',
-                courseStates: ['ACTIVE']
             });
             return courses.data.courses;
         } catch (error) {
