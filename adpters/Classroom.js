@@ -10,8 +10,6 @@ class Classroom {
       const classroom = google.classroom({ version: "v1", auth: oAuth2Client });
       const courses = await classroom.courses.list({
         pageSize: 10,
-        teacherId: "me",
-        courseStates: ["ACTIVE"],
       });
 
       const filteredCourses = courses.data.courses.filter(
