@@ -9,6 +9,7 @@ class Classroom {
       const oAuth2Client = createOAuth2Client(token);
       const classroom = google.classroom({ version: "v1", auth: oAuth2Client });
       const courses = await classroom.courses.list({
+        teacherId: "me",
         pageSize: 10,
       });
 

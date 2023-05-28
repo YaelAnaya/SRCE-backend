@@ -21,14 +21,4 @@ router.post("/bdGetTree", bdGetTree);
 router.post("/bdGetUserCourses", bdGetUserCourses);
 router.post("/getTareasCurso", getTareasCurso);
 
-// router.post('/course-work/students',);
-//
-// router.post('/student', );
-//
-// router.post('/course-work',);
-//
-// router.post('/course', );
-//
-// router.post('/teacher',);
-
 module.exports = router;
