@@ -11,6 +11,7 @@ const {
   bdGetUserCourses,
   bdGetTree,
   getTareasCurso,
+  bdSaveIndicator,
 } = require(".././controllers/bd.controller");
 
 router.post("/", getCourses);
@@ -20,5 +21,6 @@ router.post("/buscarDocente", buscarDocente);
 router.post("/bdGetTree", bdGetTree);
 router.post("/bdGetUserCourses", bdGetUserCourses);
 router.post("/getTareasCurso", getTareasCurso);
+router.post("/bdSaveIndicator", bdSaveIndicator);
 
 module.exports = router;
