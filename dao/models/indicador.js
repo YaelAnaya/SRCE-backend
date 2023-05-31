@@ -1,13 +1,15 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const indicadorSchema = new mongoose.Schema({
-  id_Indicador: String,
-  descripcion: String,
-  evidencia: {
-    type: [String]
-  }
+  idIndicador: String,
+  claveAsignatura: String,
+  id_AE: String,
+  idCD: String,
+  descripcionIndicador: String,
+  tareaIndicador: String,
+  id_Tarea: String,
 });
 
-const indicador = mongoose.model('indicador', indicadorSchema);
+const indicador = mongoose.model("indicador", indicadorSchema);
 
 module.exports = indicador;

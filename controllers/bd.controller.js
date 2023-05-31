@@ -1,10 +1,43 @@
 const Docentes = require("../dao/docentesDAO");
 const Docente = require("../dao/models/docente");
+const Indicador = require("../dao/models/indicador");
+const Indicadores = require("../dao/indicadoresDAO");
 const AEDefinido = require("../dao/models/aeDefinido");
 const Asignatura = require("../dao/asignaturasDAO");
 const { createOAuth2Client } = require("../adpters/Auth");
 const docentes = new Docentes();
 const asignatura = new Asignatura();
+const indicadores = new Indicadores();
+
+const bdSaveIndicator = async (req, res) => {
+  /* 
+  const {
+    idIndicador,
+    claveAsignatura,
+    id_AE,
+    idCD,
+    descripcionIndicador,
+    tareaIndicador,
+    id_Tarea,
+  } = req.body;
+
+  try {
+    indicadores.guardarIndicador(
+      idIndicador,
+      claveAsignatura,
+      id_AE,
+      idCD,
+      descripcionIndicador,
+      tareaIndicador,
+      id_Tarea
+    );
+    console.log("Indicador guardado");
+    res.status(200).send({ message: "Indicador guardado correctamente" });
+  } catch (error) {
+    console.log("Error en bd controller" + error);
+  }
+  */
+};
 
 const bdSaveClass = async (req, res) => {
   const { id_Asignatura, nombreAsignatura, claveAsignatura, token } = req.body;
@@ -120,4 +153,5 @@ module.exports = {
   bdGetUserCourses,
   bdGetTree,
   getTareasCurso,
+  bdSaveIndicator,
 };
